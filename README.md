@@ -37,7 +37,8 @@ By blending AI-driven conversation, self-guided tools, peer encouragement, and l
 - **Database:** Encrypted SQLite for secure mood & journal storage  
 - **Auth:** JWT-based authentication  
 - **Chatbot Framework:** Rasa NLU & Core (runs on-device or via secure backend)  
-- **Frontend:** React Native (iOS & Android support)  
+- **Frontend:** React Native (iOS & Android support)
+    
 
 ## How to Run
 
