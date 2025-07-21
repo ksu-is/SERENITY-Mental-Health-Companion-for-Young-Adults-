@@ -1,0 +1,39 @@
+/* static/serenity.css */
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #eaf6f6;
+    padding: 2em;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    color: #2c7873;
+    font-family: "Times New Roman", Times, serif;
+}
+
+form label {
+    display: block;
+    margin-top: 1em;
+    font-family: "Times New Roman", Times, serif;
+}
+
+input, textarea, select, button {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+
+button {
+    background-color: #2c7873;
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+button:hover {
+    background-color: #1f5653;
+}
