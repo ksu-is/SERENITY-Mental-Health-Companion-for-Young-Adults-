@@ -1,0 +1,67 @@
+<!--
+  Template: Serenity index page
+  Author: Victoria Ewoigbokhan
+  Purpose: Main UI for mood check‑in and coping recommendations
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serenity 🌿</title>
+    <link rel="stylesheet" href="/static/serenity.css">
+</head>
+<body>
+    <h1>Serenity 🌿</h1>
+
+    <form method="POST">
+        <label>
+            How are you feeling?
+            <textarea name="feeling" rows="2" required placeholder="Describe in your own words…"></textarea>
+        </label>
+
+        <label>
+            Symptoms (comma‑separated):
+            <input type="text" name="symptoms" placeholder="e.g. anxiety, stress" required>
+        </label>
+
+        <label>
+            Mood Rating (1 = Very Low, 5 = Very High):
+            <input type="number" name="mood_score" min="1" max="5" value="3" required>
+        </label>
+
+        <button type="submit">Get Support</button>
+    </form>
+
+    {% if result %}
+        {% if result.error %}
+            <p style="color: red;"><strong>Error:</strong> {{ result.error }}</p>
+        {% else %}
+            <h2>🕒 Time of Day: {{ result.time_of_day }}</h2>
+            <p><strong>Mood:</strong> {{ result.mood_label }}</p>
+
+            <h3>🛠️ Coping Strategies</h3>
+            <ul>
+                {% for strat in result.strategies %}
+                    <li>{{ strat }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>🏅 Encouragement Badges</h3>
+            <ul>
+                {% for badge in result.encouragement_badges %}
+                    <li>{{ badge }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>📚 Local Resources</h3>
+            <ul>
+                {% for res in result.resources %}
+                    <li><a href="{{ res.url }}" target="_blank">{{ res.name }}</a></li>
+                {% else %}
+                    <li>No resources found for your area.</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
